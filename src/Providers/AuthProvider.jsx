@@ -13,8 +13,8 @@ const AuthProvider = ({children}) => {
         switch (res.status) {
             case 200: {
                 const {token} = authorisation;
-                setToken(token);
                 localStorage.setItem("site", token);
+                setToken(token);
                 navigate('')
                 break;
             }
@@ -41,7 +41,10 @@ const AuthProvider = ({children}) => {
         return payload;
 
     }
-    return <AuthContext.Provider value={{login, register, token}}>{children}</AuthContext.Provider>;
+    const isAuthenticated = () => {
+        return !!token;
+    }
+    return <AuthContext.Provider value={{login, register, token, isAuthenticated}}>{children}</AuthContext.Provider>;
 };
 
 export default AuthProvider;

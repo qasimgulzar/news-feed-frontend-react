@@ -20,7 +20,7 @@ const SignupTemplate = () => {
                 class="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border my-7 py-4">
                 <div
                     class="relative grid mx-4 mb-4 -mt-6 overflow-hidden shadow-lg h-28 place-items-center rounded-xl bg-gradient-to-tr from-gray-900 to-gray-800 bg-clip-border shadow-gray-900/20">
-                    <h3 class="font-sans text-3xl antialiased font-semibold leading-snug tracking-normal text-center align-middle">
+                    <h3 class="font-sans text-3xl antialiased font-semibold leading-snug tracking-normal text-center align-middle text-white">
                         <span className="inline-block align-middle">Sign Up</span>
                     </h3>
                 </div>
