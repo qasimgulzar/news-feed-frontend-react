@@ -2,9 +2,10 @@ import {useAuth} from "../Providers/AuthProvider";
 
 const LoginForm = (props) => {
     const auth = useAuth();
+    const {id, onError} = props;
 
     const events = {
-        onSubmit: (e) => {
+        onSubmit: async (e) => {
             e.preventDefault();
 
             const formData = {
@@ -14,11 +15,15 @@ const LoginForm = (props) => {
 
             }
             console.log(formData);
-            auth.login(formData);
+            try {
+                await auth.login(formData);
+            } catch (e) {
+                if (onError)
+                    onError('Incorrect email or password!');
+            }
             return false;
         }
     }
-    const {id} = props;
     return (
         <form id={id} {...events} ></form>
     );

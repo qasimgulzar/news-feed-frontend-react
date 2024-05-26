@@ -1,11 +1,13 @@
 import LoginButton from "../Atoms/LoginButton";
 import LoginForm from "../Atoms/LoginForm";
 import {Link} from "react-router-dom";
+import {useState} from "react";
 
 const LoginTemplate = () => {
+    const [error, setError] = useState('')
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <LoginForm id="login-form"></LoginForm>
+            <LoginForm id="login-form" onError={(err) => setError(err)}></LoginForm>
             <div className="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border my-7 py-4">
                 <div
                     className="relative grid mx-4 mb-4 -mt-6 overflow-hidden shadow-lg h-28 place-items-center rounded-xl bg-gradient-to-tr from-gray-900 to-gray-800 bg-clip-border shadow-gray-900/20">
@@ -13,6 +15,7 @@ const LoginTemplate = () => {
                         <span className="inline-block align-middle">Sign In</span>
                     </h3>
                 </div>
+                <label className="border-r-orange-600 w-full text-center text-red-600">{error}</label>
                 <div className="flex flex-col gap-4 p-6">
                     <div className="relative h-11 w-full min-w-[200px]">
                         <input
